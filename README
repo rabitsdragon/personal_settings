@@ -1,0 +1,3 @@
+-- configuration settings for my personal neovim .config files --
+
+shouldn't be anything to work with besides personal MASON config. otherwise future plans include adding saving across sessions to limit harpoon resetting if not saved
