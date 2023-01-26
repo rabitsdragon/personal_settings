@@ -33,7 +33,8 @@ return require('packer').startup(function(use)
 		-- or                            , branch = '0.1.x',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
-	use 'folke/tokyonight.nvim'
+	-- use 'folke/tokyonight.nvim'
+	use { "ellisonleao/gruvbox.nvim" }
 	use {
 		's1n7ax/nvim-window-picker',
 		tag = 'v1.*',
