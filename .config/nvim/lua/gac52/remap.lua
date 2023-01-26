@@ -26,6 +26,7 @@ keymap("n", "<leader>ef", ":NvimTreeFocus<cr>", opts)
 keymap("n", "<leader>ec", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>eo", ":NvimTreeFindFile<cr>", opts)
 keymap("n", "<C-q>", ":tabl<cr>i", opts)
+keymap("i", "jk", "<Esc>", opts)
 
 -- run current python file --
 keymap("n", "<leader>rt", ":w<cr>:!python %<cr>", opts)

@@ -7,15 +7,33 @@ telescope.setup {
 		".mozilla",
 		".local",
 		".cache",
+		".git",
 	}},
 
 	pickers = {
-		--find_files = {"rg", "--ignore", "-L", "--hidden", "--files"},	
+		git_branches = {
+			initial_mode = "normal",
+			sort_lastused = true,
+			theme = "ivy",
+			mappings = {
+				n = {
+					["q"] = require("telescope.actions").close,
+					["<c-o>"] = require("telescope.actions").git_checkout,
+				}
+			}
+		},
+		git_files = {
+			initial_mode = "insert",
+			mappings = {
+				n = {
+					["q"] = require("telescope.actions").close,
+				}
+			}
+		},
 		buffers = {
 			initial_mode = "normal",
 			sort_lastused = true,
-			theme = "dropdown",
-			previewer = false,
+			theme = "ivy",
 			mappings = {
 				i = {
 					-- Right hand side can also be the name of the action as a string
@@ -23,6 +41,7 @@ telescope.setup {
 				},
 				n = {
 					["<c-d>"] = require("telescope.actions").delete_buffer,
+					["q"] = require("telescope.actions").close,
 				}
 			}
 		},
@@ -35,8 +54,12 @@ telescope.setup {
 --telescope.load_extension('cder')
 
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-vim.keymap.set("n", "<leader>pb", builtin.buffers, {})
-vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
 vim.keymap.set('n', '<leader>ps', function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
+vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
+
+
+
